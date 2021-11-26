@@ -1,0 +1,9 @@
+# Disable reminder in prompt
+ignoredirmessage
+
+*.errors
+*.hi
+*.o
+*xmonad-*
+*xmonad
+*xmonad.state
