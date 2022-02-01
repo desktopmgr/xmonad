@@ -7,3 +7,5 @@ ignoredirmessage
 *xmonad-*
 *xmonad
 *xmonad.state
+# ignore commit message
+.gitcommit
