@@ -186,16 +186,6 @@ mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 -- Defining a bunch of layouts, many that I don't use.
 -- limitWindows n sets maximum number of windows displayed for layout.
 -- mySpacing n sets the gap size around the windows.
-tall =
-  renamed [Replace "tall"] $
-    smartBorders $
-      windowNavigation $
-        addTabs shrinkText myTabTheme $
-          subLayout [] (smartBorders Simplest) $
-            limitWindows 12 $
-              mySpacing 8 $
-                ResizableTall 1 (3 / 100) (1 / 2) []
-
 monocle =
   renamed [Replace "monocle"] $
     smartBorders $
@@ -203,6 +193,16 @@ monocle =
         addTabs shrinkText myTabTheme $
           subLayout [] (smartBorders Simplest) $
             limitWindows 20 Full
+
+tall =
+  renamed [Replace "tall"] $
+    smartBorders $
+      windowNavigation $
+        addTabs shrinkText myTabTheme $
+          subLayout [] (smartBorders Simplest) $
+            limitWindows 12 $
+              mySpacing 1 $
+                ResizableTall 1 (3 / 100) (1 / 2) []
 
 floats =
   renamed [Replace "floats"] $
@@ -356,7 +356,6 @@ myKeys =
 
     -- KB_GROUP Get Help
     ("M-S-/", spawn "~/.xmonad/xmonad_keys.sh"), -- Get list of keybindings
-    ("M-/", spawn "dtos-help"), -- DTOS help/tutorial videos
 
     -- KB_GROUP Run Prompt
     ("M-S-<Return>", spawn "dmenu_run -i -p \"Run: \""), -- Dmenu
@@ -497,8 +496,8 @@ main :: IO ()
 main = do
   -- Launching three instances of xmobar on their monitors.
   xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/doom-one-xmobarrc"
-  xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/doom-one-xmobarrc"
-  xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/doom-one-xmobarrc"
+  -- xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/doom-one-xmobarrc"
+  -- xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/doom-one-xmobarrc"
   -- the xmonad, ya know...what the WM is named after!
   xmonad $
     ewmh
