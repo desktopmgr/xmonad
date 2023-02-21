@@ -67,10 +67,10 @@ myTerminal :: String
 myTerminal = "myterminal" -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "mybrowser " -- Sets default browser
+myBrowser = "mybrowser" -- Sets default browser
 
 myEditor :: String
-myEditor = "myeditor " -- Sets default editor
+myEditor = "myeditor" -- Sets default editor
 
 myEmacs :: String
 myEmacs = "emacsclient -c -a 'emacs' " -- Makes emacs keybindings easier to type
@@ -165,7 +165,7 @@ myScratchPads =
         w = 0.9
         t = 0.95 - h
         l = 0.95 - w
-    spawnCalc = "qalculate-gtk"
+    spawnCalc = "calc"
     findCalc = className =? "Qalculate-gtk"
     manageCalc = customFloating $ W.RationalRect l t w h
       where
@@ -196,16 +196,16 @@ tall =
               mySpacing 8 $
                 ResizableTall 1 (3 / 100) (1 / 2) []
 
-magnify =
-  renamed [Replace "magnify"] $
-    smartBorders $
-      windowNavigation $
-        addTabs shrinkText myTabTheme $
-          subLayout [] (smartBorders Simplest) $
-            magnifier $
-              limitWindows 12 $
-                mySpacing 8 $
-                  ResizableTall 1 (3 / 100) (1 / 2) []
+-- magnify =
+--   renamed [Replace "magnify"] $
+--     smartBorders $
+--       windowNavigation $
+--         addTabs shrinkText myTabTheme $
+--           subLayout [] (smartBorders Simplest) $
+--             magnifier $
+--               limitWindows 12 $
+--                 mySpacing 8 $
+--                   ResizableTall 1 (3 / 100) (1 / 2) []
 
 monocle =
   renamed [Replace "monocle"] $
@@ -376,21 +376,21 @@ myKeys =
     -- KB_GROUP Other Dmenu Prompts
     -- In Xmonad and many tiling window managers, M-p is the default keybinding to
     -- launch dmenu_run, so I've decided to use M-p plus KEY for these dmenu scripts.
-    ("M-p h", spawn "dm-hub"), -- allows access to all dmscripts
-    ("M-p a", spawn "dm-sounds"), -- choose an ambient background
-    ("M-p b", spawn "dm-setbg"), -- set a background
-    ("M-p c", spawn "dm-colpick"), -- pick color from our scheme
-    ("M-p e", spawn "dm-confedit"), -- edit config files
-    ("M-p i", spawn "dm-maim"), -- screenshots (images)
-    ("M-p k", spawn "dm-kill"), -- kill processes
-    ("M-p m", spawn "dm-man"), -- manpages
-    ("M-p n", spawn "dm-note"), -- store one-line notes and copy them
-    ("M-p o", spawn "dm-bookman"), -- qutebrowser bookmarks/history
-    ("M-p p", spawn "passmenu"), -- passmenu
-    ("M-p q", spawn "dm-logout"), -- logout menu
-    ("M-p r", spawn "dm-reddit"), -- reddio (a reddit viewer)
-    ("M-p s", spawn "dm-websearch"), -- search various search engines
-    ("M-p t", spawn "dm-translate"), -- translate text (Google Translate)
+    -- ("M-p h", spawn "dm-hub"), -- allows access to all dmscripts
+    -- ("M-p a", spawn "dm-sounds"), -- choose an ambient background
+    -- ("M-p b", spawn "dm-setbg"), -- set a background
+    -- ("M-p c", spawn "dm-colpick"), -- pick color from our scheme
+    -- ("M-p e", spawn "dm-confedit"), -- edit config files
+    -- ("M-p i", spawn "dm-maim"), -- screenshots (images)
+    -- ("M-p k", spawn "dm-kill"), -- kill processes
+    -- ("M-p m", spawn "dm-man"), -- manpages
+    -- ("M-p n", spawn "dm-note"), -- store one-line notes and copy them
+    -- ("M-p o", spawn "dm-bookman"), -- qutebrowser bookmarks/history
+    -- ("M-p p", spawn "passmenu"), -- passmenu
+    -- ("M-p q", spawn "dm-logout"), -- logout menu
+    -- ("M-p r", spawn "dm-reddit"), -- reddio (a reddit viewer)
+    -- ("M-p s", spawn "dm-websearch"), -- search various search engines
+    -- ("M-p t", spawn "dm-translate"), -- translate text (Google Translate)
 
     -- KB_GROUP Useful programs to have a keybinding for launch
     ("M-<Return>", spawn (myTerminal)),
@@ -491,12 +491,12 @@ myKeys =
     ("<XF86AudioMute>", spawn "amixer set Master toggle"),
     ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute"),
     ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute"),
-    ("<XF86HomePage>", spawn "qutebrowser https://www.youtube.com/c/DistroTube"),
+    ("<XF86HomePage>", spawn "mybrowser"),
     ("<XF86Search>", spawn "dm-websearch"),
     ("<XF86Mail>", runOrRaise "thunderbird" (resource =? "thunderbird")),
-    ("<XF86Calculator>", runOrRaise "qalculate-gtk" (resource =? "qalculate-gtk")),
+    ("<XF86Calculator>", runOrRaise "calc" (resource =? "qalculate-gtk")),
     ("<XF86Eject>", spawn "toggleeject"),
-    ("<Print>", spawn "dm-maim")
+    ("<Print>", spawn "screenshot-menu")
   ]
   where
     -- The following lines are needed for named scratchpads.
