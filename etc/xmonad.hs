@@ -196,17 +196,6 @@ tall =
               mySpacing 8 $
                 ResizableTall 1 (3 / 100) (1 / 2) []
 
--- magnify =
---   renamed [Replace "magnify"] $
---     smartBorders $
---       windowNavigation $
---         addTabs shrinkText myTabTheme $
---           subLayout [] (smartBorders Simplest) $
---             magnifier $
---               limitWindows 12 $
---                 mySpacing 8 $
---                   ResizableTall 1 (3 / 100) (1 / 2) []
-
 monocle =
   renamed [Replace "monocle"] $
     smartBorders $
@@ -309,7 +298,6 @@ myLayoutHook =
   where
     myDefaultLayout =
       withBorder myBorderWidth tall
-        ||| magnify
         ||| noBorders monocle
         ||| floats
         ||| noBorders tabs
