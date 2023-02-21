@@ -496,8 +496,8 @@ main :: IO ()
 main = do
   -- Launching three instances of xmobar on their monitors.
   xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/doom-one-xmobarrc"
-  -- xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/doom-one-xmobarrc"
-  -- xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/doom-one-xmobarrc"
+  xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/doom-one-xmobarrc"
+  xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/doom-one-xmobarrc"
   -- the xmonad, ya know...what the WM is named after!
   xmonad $
     ewmh
