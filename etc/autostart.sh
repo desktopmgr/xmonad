@@ -75,6 +75,12 @@ fi
 # sudo password using dmenu
 #__does_cmd_exist ask_for_password && SUDO_ASKPASS="/usr/local/bin/ask_for_password"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# System tray
+if __does_cmd_exist trayer; then
+  __silent_kill trayer
+  __silent_start trayer
+fi
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Panel - not needed for awesome i3 qtile sway xmonad
 if __desktop_name "awesome" || __desktop_name "i3" || __desktop_name "qtile" || __desktop_name "sway" || __desktop_name "xmonad"; then
   true
